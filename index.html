@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Автосалон «Трасса» — купить автомобиль</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="#top" class="logo">Трасса</a>
+  <nav class="nav">
+    <a href="#catalog">Каталог</a>
+    <a href="#why">Почему мы</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <button class="cart-btn" id="cartOpen" aria-label="Открыть корзину">
+    Корзина <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <h1>Автомобили с пробегом и новые. С проверкой по 120 пунктам.</h1>
+    <p>Каждая машина проходит диагностику, а история обслуживания лежит в карточке авто.</p>
+    <a class="btn" href="#catalog">Смотреть каталог</a>
+    <div class="hero-stats">
+      <div><strong id="statCars">0</strong> авто в наличии</div>
+      <div><strong>12 мес.</strong> гарантия на двигатель</div>
+      <div><strong>7 дней</strong> на возврат</div>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <h2>Каталог</h2>
+    <div class="filters">
+      <input type="search" id="search" placeholder="Марка или модель" aria-label="Поиск">
+      <select id="brand" aria-label="Марка"><option value="">Все марки</option></select>
+      <select id="sort" aria-label="Сортировка">
+        <option value="default">Сначала новые в каталоге</option>
+        <option value="price-asc">Дешевле</option>
+        <option value="price-desc">Дороже</option>
+        <option value="year-desc">Новее по году</option>
+        <option value="mileage-asc">Меньше пробег</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Ничего не найдено. Измените запрос или сбросьте марку.</p>
+  </section>
+
+  <section class="why" id="why">
+    <h2>Почему покупают у нас</h2>
+    <ul>
+      <li><h3>Диагностика перед продажей</h3><p>Проверяем двигатель, коробку, подвеску и кузов. Отчёт показываем до сделки.</p></li>
+      <li><h3>Чистая история</h3><p>Сверяем пробег, ДТП и ограничения по базам. Если что-то не сходится, авто не попадает в каталог.</p></li>
+      <li><h3>Trade-in и рассрочка</h3><p>Принимаем вашу машину в зачёт и оформляем рассрочку на срок до 36 месяцев.</p></li>
+    </ul>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div>
+      <h2>Приезжайте на тест-драйв</h2>
+      <p>Бишкек, пр. Чуй, 100<br>Ежедневно с 9:00 до 20:00<br>+996 555 00 00 00</p>
+    </div>
+    <form id="testForm" novalidate>
+      <label>Имя <input type="text" id="fName" required></label>
+      <label>Телефон <input type="tel" id="fPhone" required placeholder="+996"></label>
+      <button class="btn" type="submit">Записаться на тест-драйв</button>
+      <p class="form-msg" id="formMsg" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">© 2026 Автосалон «Трасса»</footer>
+
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Корзина">
+  <div class="drawer-head">
+    <h2>Корзина</h2>
+    <button id="cartClose" aria-label="Закрыть корзину">Закрыть</button>
+  </div>
+  <ul class="cart-list" id="cartList"></ul>
+  <p class="cart-empty" id="cartEmpty">В корзине пока пусто. Добавьте авто из каталога.</p>
+  <div class="drawer-foot">
+    <div class="total">Итого: <strong id="cartTotal">$0</strong></div>
+    <button class="btn" id="checkout">Оформить заявку</button>
+    <p class="form-msg" id="cartMsg" role="status"></p>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
